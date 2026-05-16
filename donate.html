@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Support the Research · Sage D. Assiam</title>
+<meta name="description" content="Support independent research on student belonging for first-generation, Black, low-income, and international students." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy: #0a2342;
+    --navy-deep: #061730;
+    --gold: #c69536;
+    --gold-soft: #ddb869;
+    --black: #121316;
+    --white: #ffffff;
+    --paper: #f4f6f9;
+    --ink: #1b2436;
+    --ink-soft: #5c6577;
+    --line: #e1e5ec;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--white); color: var(--ink);
+    font-family: 'Hanken Grotesk', sans-serif; font-size: 18px; line-height: 1.65;
+    -webkit-font-smoothing: antialiased; overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+  ::selection { background: var(--gold); color: var(--navy); }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 32px; position: relative; }
+
+  /* nav */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    background: rgba(255,255,255,0.94); backdrop-filter: blur(10px);
+    box-shadow: 0 1px 0 var(--line); padding: 15px 0;
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+  .nav-mark { font-family: 'Fraunces', serif; font-weight: 600; font-size: 20px; color: var(--navy); }
+  .nav-mark span { color: var(--gold); }
+  .nav-links { display: flex; gap: 30px; align-items: center; }
+  .nav-links a {
+    font-size: 13.5px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
+    color: var(--ink-soft); transition: color .2s ease;
+  }
+  .nav-links a:hover { color: var(--navy); }
+  .nav-links a.active { color: var(--navy); }
+  .nav-links a.active::after {
+    content: ""; display: block; height: 2px; background: var(--gold); margin-top: 4px;
+  }
+  @media (max-width: 820px) { .nav-links a:not(.back) { display: none; } }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+    font-size: 14px; font-weight: 600; letter-spacing: 0.03em;
+    padding: 14px 26px; border-radius: 100px; cursor: pointer;
+    transition: transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
+  }
+  .btn-primary { background: var(--navy); color: var(--white); }
+  .btn-primary:hover { background: var(--gold); color: var(--navy); transform: translateY(-2px); }
+  .btn-ghost { border: 1.5px solid var(--navy); color: var(--navy); }
+  .btn-ghost:hover { background: var(--navy); color: var(--white); transform: translateY(-2px); }
+
+  /* header */
+  header { padding: 150px 0 60px; }
+  .eyebrow {
+    font-size: 13px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 22px;
+  }
+  h1 {
+    font-family: 'Fraunces', serif; font-weight: 600; color: var(--navy);
+    font-size: clamp(40px, 6vw, 70px); line-height: 1.02; letter-spacing: -0.025em;
+    margin-bottom: 22px; max-width: 16ch;
+  }
+  .lede { font-size: 19px; color: var(--ink-soft); max-width: 56ch; }
+
+  /* giving layout */
+  .give-section { padding: 36px 0 100px; }
+  .give-grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: 60px; align-items: start; }
+  @media (max-width: 880px) { .give-grid { grid-template-columns: 1fr; gap: 44px; } }
+
+  h2 {
+    font-family: 'Fraunces', serif; font-weight: 600; color: var(--navy);
+    font-size: clamp(26px, 3.4vw, 36px); line-height: 1.12; letter-spacing: -0.02em;
+    margin-bottom: 22px;
+  }
+  .give-why p { color: var(--ink-soft); margin-bottom: 18px; }
+  .impact-list { list-style: none; margin-top: 30px; }
+  .impact-list li {
+    padding: 18px 0; border-top: 1px solid var(--line); display: flex; gap: 16px;
+  }
+  .impact-list li:last-child { border-bottom: 1px solid var(--line); }
+  .impact-ico {
+    flex: none; width: 38px; height: 38px; border-radius: 10px;
+    background: var(--paper); border: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Fraunces', serif; font-weight: 600; color: var(--gold); font-size: 17px;
+  }
+  .impact-list h3 {
+    font-family: 'Fraunces', serif; font-size: 17px; color: var(--navy); margin-bottom: 3px;
+  }
+  .impact-list p { font-size: 14.5px; color: var(--ink-soft); }
+
+  /* giving card */
+  .give-card {
+    background: var(--navy); border-radius: 22px; padding: 40px 38px;
+    position: relative; overflow: hidden;
+  }
+  .give-card::before {
+    content: ""; position: absolute; right: -90px; top: -90px;
+    width: 260px; height: 260px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(198,149,54,0.28) 0%, transparent 70%);
+  }
+  .give-card-in { position: relative; z-index: 1; }
+  .give-card h2 { color: var(--white); margin-bottom: 6px; font-size: 28px; }
+  .give-card .sub { color: rgba(255,255,255,0.6); font-size: 14.5px; margin-bottom: 26px; }
+
+  .field-label {
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 12px;
+  }
+
+  /* frequency toggle */
+  .freq {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 6px;
+    background: rgba(255,255,255,0.08); border-radius: 100px; padding: 5px; margin-bottom: 26px;
+  }
+  .freq button {
+    border: none; background: transparent; color: rgba(255,255,255,0.7);
+    font-family: inherit; font-size: 14px; font-weight: 600; cursor: pointer;
+    padding: 11px 0; border-radius: 100px; transition: background .2s ease, color .2s ease;
+  }
+  .freq button.on { background: var(--gold); color: var(--navy); }
+
+  /* amount grid */
+  .amounts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; transition: opacity .25s ease; }
+  .amount {
+    border: 1.5px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.05);
+    border-radius: 12px; padding: 14px 12px; cursor: pointer; text-align: left;
+    font-family: inherit; transition: border-color .2s ease, background .2s ease, transform .15s ease;
+  }
+  .amount:hover { border-color: rgba(255,255,255,0.4); transform: translateY(-2px); }
+  .amount.on { border-color: var(--gold); background: rgba(198,149,54,0.16); }
+  .amount .amt {
+    font-family: 'Fraunces', serif; font-weight: 600; font-size: 21px; color: var(--white);
+  }
+  .amount .lbl { font-size: 12px; color: rgba(255,255,255,0.6); margin-top: 2px; }
+
+  .custom-row { position: relative; margin-bottom: 22px; transition: opacity .25s ease; }
+  .custom-row .cur {
+    position: absolute; left: 16px; top: 50%; transform: translateY(-50%);
+    color: rgba(255,255,255,0.55); font-size: 16px; font-weight: 600;
+  }
+  .custom-row input {
+    width: 100%; background: rgba(255,255,255,0.05);
+    border: 1.5px solid rgba(255,255,255,0.18); border-radius: 12px;
+    padding: 14px 16px 14px 30px; color: var(--white);
+    font-family: inherit; font-size: 16px; outline: none;
+    transition: border-color .2s ease;
+  }
+  .custom-row input::placeholder { color: rgba(255,255,255,0.4); }
+  .custom-row input:focus { border-color: var(--gold); }
+
+  .amounts.muted, .custom-row.muted { opacity: 0.35; pointer-events: none; }
+
+  .give-btn {
+    width: 100%; background: var(--gold); color: var(--navy);
+    font-family: inherit; font-size: 15px; font-weight: 600; letter-spacing: 0.02em;
+    padding: 16px; border-radius: 100px; border: none; cursor: pointer; text-align: center;
+    display: block; transition: background .2s ease, transform .15s ease;
+  }
+  .give-btn:hover { background: var(--gold-soft); transform: translateY(-2px); }
+  .give-btn.disabled {
+    background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.4);
+    cursor: not-allowed; transform: none;
+  }
+  .give-note { font-size: 12.5px; color: rgba(255,255,255,0.55); margin-top: 14px; text-align: center; }
+  .give-fine {
+    font-size: 11.5px; color: rgba(255,255,255,0.4); margin-top: 18px;
+    padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.12); text-align: center;
+  }
+
+  /* other ways */
+  .ways-band { background: var(--paper); padding: 90px 0; }
+  .ways-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 14px; }
+  .way {
+    background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 28px 26px;
+    transition: transform .2s ease, border-color .2s ease;
+  }
+  .way:hover { transform: translateY(-5px); border-color: var(--gold); }
+  .way h3 { font-family: 'Fraunces', serif; font-size: 19px; color: var(--navy); margin-bottom: 8px; }
+  .way p { font-size: 14.5px; color: var(--ink-soft); }
+  .way a { color: var(--gold); font-weight: 600; font-size: 14px; }
+  @media (max-width: 760px) { .ways-grid { grid-template-columns: 1fr; } }
+
+  /* faq */
+  .faq-band { padding: 90px 0; }
+  .faq-item { border-top: 1px solid var(--line); padding: 26px 0; }
+  .faq-item:last-child { border-bottom: 1px solid var(--line); }
+  .faq-item h3 { font-family: 'Fraunces', serif; font-size: 20px; color: var(--navy); margin-bottom: 8px; }
+  .faq-item p { color: var(--ink-soft); font-size: 16px; }
+
+  /* footer */
+  footer { background: var(--navy-deep); padding: 52px 0; }
+  .foot-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 18px; }
+  .foot-mark { font-family: 'Fraunces', serif; font-weight: 600; font-size: 18px; color: var(--white); }
+  .foot-mark span { color: var(--gold); }
+  .foot-links { display: flex; gap: 22px; font-size: 14px; }
+  .foot-links a { color: rgba(255,255,255,0.65); }
+  .foot-links a:hover { color: var(--gold); }
+  .foot-copy { font-size: 13px; color: rgba(255,255,255,0.45); width: 100%; padding-top: 6px; }
+
+  .sec-label {
+    font-size: 13px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 16px; display: flex; align-items: center; gap: 14px;
+  }
+  .sec-label::before { content: ""; width: 32px; height: 2px; background: var(--gold); }
+
+  .reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a href="index.html" class="nav-mark">Sage D. <span>Assiam</span></a>
+    <div class="nav-links">
+      <a href="index.html#about">About</a>
+      <a href="index.html#research">Research</a>
+      <a href="index.html#cv">CV</a>
+      <a href="donate.html" class="active">Donate</a>
+      <a href="index.html#connect" class="back">Connect</a>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow reveal">Support the Research</div>
+    <h1 class="reveal">Invest in students higher education too often overlooks.</h1>
+    <p class="lede reveal">First-generation, Black, low-income, and international students carry remarkable talent into our institutions. My research asks how they build belonging and the confidence to succeed, and what colleges must do to support them. Your gift helps that work continue.</p>
+  </div>
+</header>
+
+<section class="give-section">
+  <div class="wrap give-grid">
+
+    <div class="give-why reveal">
+      <h2>Why your support matters.</h2>
+      <p>I am a first-generation international scholar, and the students I study are people I have lived alongside and served for nearly a decade. This research is independent, and the everyday costs of doing it well add up quickly.</p>
+      <p>A gift of any size is a direct investment in scholarship that takes these students seriously and gives institutions practical, evidence-based ways to support them.</p>
+      <ul class="impact-list">
+        <li>
+          <div class="impact-ico">A</div>
+          <div>
+            <h3>Centering overlooked students</h3>
+            <p>Keeps the work focused on first-generation, Black, low-income, and international students.</p>
+          </div>
+        </li>
+        <li>
+          <div class="impact-ico">B</div>
+          <div>
+            <h3>Rigorous, ethical research</h3>
+            <p>Funds interview transcription, participant appreciation, and qualitative analysis tools.</p>
+          </div>
+        </li>
+        <li>
+          <div class="impact-ico">C</div>
+          <div>
+            <h3>Sharing what works</h3>
+            <p>Supports travel to present findings so colleges can act on the evidence.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="give-card reveal">
+      <div class="give-card-in">
+        <h2>Make a gift</h2>
+        <p class="sub">Secure giving through trusted payment partners.</p>
+
+        <div class="field-label">Frequency</div>
+        <div class="freq" id="freq">
+          <button class="on" data-freq="once">One-time</button>
+          <button data-freq="monthly">Monthly</button>
+        </div>
+
+        <div class="field-label">Choose an amount</div>
+        <div class="amounts" id="amounts">
+          <button class="amount" data-amount="15"><span class="amt">$15</span><span class="lbl">Participant appreciation</span></button>
+          <button class="amount on" data-amount="30"><span class="amt">$30</span><span class="lbl">One interview transcribed</span></button>
+          <button class="amount" data-amount="75"><span class="amt">$75</span><span class="lbl">A month of research tools</span></button>
+          <button class="amount" data-amount="150"><span class="amt">$150</span><span class="lbl">Conference travel fund</span></button>
+        </div>
+        <div class="custom-row" id="customRow">
+          <span class="cur">$</span>
+          <input type="number" id="customAmount" min="1" step="1" placeholder="Other amount" inputmode="numeric" />
+        </div>
+
+        <a class="give-btn" id="giveBtn" target="_blank" rel="noopener">Continue to PayPal</a>
+        <p class="give-note" id="giveNote">You will be taken to PayPal to complete a secure one-time gift.</p>
+        <p class="give-fine">Contributions are personal gifts that support independent research costs. They are not tax-deductible charitable donations. This site never sees your card or banking details.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="ways-band">
+  <div class="wrap">
+    <div class="sec-label reveal">Beyond Giving</div>
+    <h2 class="reveal">Other ways to support the work.</h2>
+    <div class="ways-grid">
+      <div class="way reveal">
+        <h3>Share it</h3>
+        <p>Pass this page to a colleague, mentor, or program that cares about student belonging.</p>
+      </div>
+      <div class="way reveal">
+        <h3>Invite me to speak</h3>
+        <p>I present on belonging, equity, and international student success at campuses and convenings.</p>
+        <a href="index.html#connect">Get in touch &rarr;</a>
+      </div>
+      <div class="way reveal">
+        <h3>Collaborate</h3>
+        <p>I welcome research partnerships and conversations with scholars and practitioners.</p>
+        <a href="index.html#connect">Connect &rarr;</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="faq-band">
+  <div class="wrap">
+    <div class="sec-label reveal">Good to Know</div>
+    <h2 class="reveal">A few honest answers.</h2>
+    <div class="faq-item reveal">
+      <h3>Is my gift tax-deductible?</h3>
+      <p>No. These are personal gifts to an individual researcher, not charitable donations to a registered nonprofit, so they do not qualify for a tax deduction. I would rather be clear about that than imply otherwise.</p>
+    </div>
+    <div class="faq-item reveal">
+      <h3>Where exactly does the money go?</h3>
+      <p>Gifts offset the real costs of independent research: interview transcription, participant appreciation, qualitative analysis software, and travel to share findings with the institutions that can use them.</p>
+    </div>
+    <div class="faq-item reveal">
+      <h3>How is my payment handled?</h3>
+      <p>Through PayPal for one-time gifts and Buy Me a Coffee for monthly support. You complete the payment on their secure platforms; this website never collects or stores your financial information.</p>
+    </div>
+    <div class="faq-item reveal">
+      <h3>Can I give in another way?</h3>
+      <p>Yes. If you would like to support the work through your institution or discuss a larger contribution, please reach out directly and we can find the right path.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap foot-inner">
+    <a href="index.html" class="foot-mark">Sage D. <span>Assiam</span></a>
+    <div class="foot-links">
+      <a href="index.html#about">About</a>
+      <a href="index.html#research">Research</a>
+      <a href="index.html#cv">CV</a>
+      <a href="donate.html">Donate</a>
+      <a href="index.html#connect">Connect</a>
+    </div>
+    <div class="foot-copy">© 2026 Sage D. Assiam. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  /* ===== EDIT THESE TWO LINES with your real usernames ===== */
+  const PAYPAL_USER = "sageassiam";              // your PayPal.me username
+  const BMC_USER    = "sageassiam";              // your Buy Me a Coffee username
+  /* ========================================================= */
+
+  let freq = "once";
+  let amount = 30;
+
+  const amountsEl = document.getElementById("amounts");
+  const customRow = document.getElementById("customRow");
+  const customInput = document.getElementById("customAmount");
+  const btn = document.getElementById("giveBtn");
+  const note = document.getElementById("giveNote");
+
+  function render() {
+    if (freq === "monthly") {
+      amountsEl.classList.add("muted");
+      customRow.classList.add("muted");
+      btn.href = "https://www.buymeacoffee.com/" + BMC_USER;
+      btn.textContent = "Continue to set up monthly support";
+      btn.classList.remove("disabled");
+      note.textContent = "Monthly giving is handled on Buy Me a Coffee, where you can choose a recurring tier.";
+    } else {
+      amountsEl.classList.remove("muted");
+      customRow.classList.remove("muted");
+      if (amount && amount > 0) {
+        btn.href = "https://www.paypal.com/paypalme/" + PAYPAL_USER + "/" + amount + "USD";
+        btn.textContent = "Continue to PayPal  ·  $" + amount;
+        btn.classList.remove("disabled");
+        note.textContent = "You will be taken to PayPal to complete a secure one-time gift.";
+      } else {
+        btn.removeAttribute("href");
+        btn.textContent = "Choose an amount";
+        btn.classList.add("disabled");
+        note.textContent = "Select or enter an amount to continue.";
+      }
+    }
+  }
+
+  document.querySelectorAll("#freq button").forEach(b => {
+    b.addEventListener("click", () => {
+      document.querySelectorAll("#freq button").forEach(x => x.classList.remove("on"));
+      b.classList.add("on");
+      freq = b.dataset.freq;
+      render();
+    });
+  });
+
+  document.querySelectorAll(".amount").forEach(a => {
+    a.addEventListener("click", () => {
+      document.querySelectorAll(".amount").forEach(x => x.classList.remove("on"));
+      a.classList.add("on");
+      amount = parseInt(a.dataset.amount, 10);
+      customInput.value = "";
+      render();
+    });
+  });
+
+  customInput.addEventListener("input", () => {
+    document.querySelectorAll(".amount").forEach(x => x.classList.remove("on"));
+    const v = parseInt(customInput.value, 10);
+    amount = (v && v > 0) ? v : 0;
+    render();
+  });
+
+  btn.addEventListener("click", (e) => {
+    if (btn.classList.contains("disabled")) e.preventDefault();
+  });
+
+  render();
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
